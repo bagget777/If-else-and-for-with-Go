@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+	"bufio"
+	"os"
 )
 
 func main() {
@@ -69,8 +71,32 @@ func main() {
 		fmt.Println(v)
 	}
 
-	for i, v := range arr5 {
-		fmt.Println(v)
-		fmt.Println(i)
+	scanner := bufio.NewScanner(os.Stdin)
+	for { 
+		scanner.Scan() 
+		if scanner.Text() == "exit" {
+			break
+		} else {
+			fmt.Println("Вы ввели слово", scanner.Text())
+		}
 	}
+
+	arr6 := []string{"Artur", "Ivan", "Elena"}
+	for i, v := range arr6 {
+		fmt.Println("ID: ", i, "Name: ", v)
+	}
+
+	arr7 := []int{1, 2, 3, 4, 5, 6, 7, 8}
+	for i := 0; i < len(arr7); i++ {
+		arr7[i] = len(arr7) - arr7[i]
+		arr7[i]++
+		fmt.Println(arr7[i])
+	}
+
+	for i := 0; i < len(arr7)/2; i++{
+		j := len(arr7) -1 - i
+		arr7[i], arr7[j] = arr7[j], arr7[i]
+	}
+	fmt.Println(arr7)
+
 }
