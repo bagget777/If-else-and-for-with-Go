@@ -10,8 +10,9 @@ func main() {
 	two := "pot"
 	fmt.Println(IsAnagram(one, two))
 
-	numb_one := []int{1,1,2,4,2,1,3,2,3,2,0,1,0,3,2,3,1,0}
-	fmt.Println(CountNumb(numb_one))
+	arr := []int{1, 3, 5, 7, 9, 11, 15}
+	target := 16
+	fmt.Println(TargetNumb(arr, target))
 }
 
 func IsAnagram(one string, two string) bool {
@@ -28,10 +29,19 @@ func IsAnagram(one string, two string) bool {
 	return string(arr1) == string(arr2)
 }
 
-func CountNumb(one []int{}) []int{} {
-	sort.Slice(one)
-	for i:=0, len(one) > i; i++ {
-		
-
+func TargetNumb(arr []int, target int) (int, int) {
+	l := 0
+	r := len(arr) - 1
+	for l < r {
+		sum := arr[l] + arr[r]
+		if sum == target {
+			return l, r
+		} else if sum > target {
+			r--
+		} else if sum < target {
+			l++
+		}
+	}
+	return -1, -1
 }
 
