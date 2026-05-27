@@ -16,6 +16,13 @@ func main() {
 	arrT := []string{"hello", "bye", "run", "fast"}
 	target := "run"
 	arr1 := Contains(arrT, target)
+	newFunc := ApplyOperation(5, 23, Adding)
+	newFunc2 := ApplyOperation(5, 23, Plus)
+	newFunc3 := ApplyOperation(5, 23, func(a, b int) int { 
+		sum := a + b
+		return sum 
+		// or just "return a + b" 
+	})
 	
 	fmt.Println("Ваше имя: ", name)
 	fmt.Println("Ваш баланс: ", course)
@@ -26,6 +33,9 @@ func main() {
 	fmt.Println("Отсортированное", sumArr)
 	fmt.Println("Тест на ошибку", test1, test2)
 	fmt.Println("Тестинг", arr1)
+	fmt.Println("latest", newFunc)
+	fmt.Println("final", newFunc2)
+	fmt.Println("final", newFunc3)
 }
 
 func Greet(name string) string {
@@ -93,3 +103,18 @@ func Contains(arr []string, target string) bool {
 	}
 	return test
 }
+
+func ApplyOperation(a, b int, op func(int, int) int) int {
+	return op(a, b)
+}
+
+func Adding(x, y int) int {
+	sum := x * y
+	return sum
+}
+
+func Plus(x, y int) int {
+	sum := x + y
+	return sum
+}
+
