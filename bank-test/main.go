@@ -10,6 +10,9 @@ func main() {
 
 	cars.Ride(bmv_car)
 	cars.Ride(zhiga_car)
+
+/*	zhiga_car.StepOnBreak()
+	bmv_car.StepOnBreak() */
 }
 
 
