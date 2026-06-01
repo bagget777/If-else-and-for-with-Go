@@ -2,6 +2,10 @@ package cars
 
 import "fmt"
 
+type Cars interface {
+	StepOnGas()
+}
+
 type BMV struct {}
 
 type Zhiga struct {}
@@ -14,11 +18,7 @@ func (z Zhiga) StepOnGas() {
 	fmt.Println("i zhiga, drive...")
 }
 
-type Car interface {
-	StepOnGas()
-}
-
-func Ride(car Car) {
+func Ride(car Cars) {
 	fmt.Println("завожусь")
 	fmt.Println("разогреваюсь")
 	fmt.Println("Я поехал")

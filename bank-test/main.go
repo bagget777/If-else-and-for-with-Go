@@ -5,11 +5,11 @@ import (
 )
 
 func main() {
-	car := cars.BMV{}
-	car.StepOnGas()
-	car2 := cars.Zhiga{}
-	car2.StepOnGas()
-	cars.Ride(car)
+	bmv_car := cars.BMV{}
+	zhiga_car := cars.Zhiga{}
+
+	cars.Ride(bmv_car)
+	cars.Ride(zhiga_car)
 }
 
 
